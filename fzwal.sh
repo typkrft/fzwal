@@ -4,8 +4,7 @@
 # - [ ] Clean up escaping
 # - [ ] Go through wal flags and set where needed
 # - [ ] Add ability to use multiple flags at the same time
-# - [ ] Add the ability to curl a directory of themes and FZF through them. Then create 
-    # a repsoitory for themes that people can upload to. 
+# - [ ] Create Repo of JSON Files that r/unixporn can add to. Don't set wallpaper
 # - [ ] Do I need to create a variable and then set the them again? I am assuming this is to prevent 
     # i3 etc from reloading everytime. 
 # - [ ] Add a better Help Message
