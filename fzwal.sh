@@ -8,15 +8,14 @@ if [ -n "$1" ]; then
     IS_LIGHT=TRUE
     THEME=$(wal --theme |
             sed '1,/Light Themes/d;/Extra/,$d' |
-            sed -E -e '/^\S/d' -e 's/^ - (\S*) ?(.*)$/\1/' |
+            sed -e 's/ - //' -e '/:$/d' -e 's/(.*)//' |
             fzf --preview='wal -qetl --theme {} && wal --preview')
 else
-    THEME=$(wal --theme |
-            sed '/Light Themes/,$d' |
-            sed -E -e '/^\S/d' -e 's/^ - (\S*) ?(.*)$/\1/' |
-            fzf --preview='wal -qet --theme {} && wal --preview')
+    THEME=$(wal --theme | 
+      sed '/Light Themes/,$d' | 
+      sed -e 's/ - //' -e '/:$/d' -e 's/(.*)//' |
+      fzf --preview='wal -qet --theme {} && wal --preview')
 fi
-
 
 if [ -n "$THEME" ]; then
     if [ -n "$IS_LIGHT" ]; then
